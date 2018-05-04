@@ -11,8 +11,10 @@ for(var i = 1 ; i < excelObj.length ; i++){
   if(excelObj[i].length > 0){
     var obj = {};
     obj.name = excelObj[i][0];
-    obj.age = excelObj[i][1];
-    obj.table = excelObj[i][2];
+    obj.tel = excelObj[i][1];
+    obj.part = excelObj[i][2];
+    console.log(excelObj[i][3])
+    obj.remark= excelObj[i][3];
     data.push(obj);
   }
 }
