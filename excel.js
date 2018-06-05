@@ -1,21 +1,26 @@
 var xlsx = require('node-xlsx');
 var fs = require('fs');
 //读取文件内容
-var obj = xlsx.parse(__dirname+'/111.xlsx');
+var obj = xlsx.parse(__dirname+'/member.xlsx');
 var excelObj=obj[0].data;
 // console.log(excelObj);
 
 var data = [];
 
-for(var i = 1 ; i < excelObj.length ; i++){
+for(let i = 1 ; i < excelObj.length ; i++){
   if(excelObj[i].length > 0){
-    var obj = {};
+    let obj = {};
     obj.name = excelObj[i][0];
-    obj.tel = excelObj[i][1];
+    obj.tel = excelObj[i][1] + '';
     obj.part = excelObj[i][2];
-    console.log(excelObj[i][3])
-    obj.remark= excelObj[i][3];
-    data.push(obj);
+    
+    obj.remark = excelObj[i][3];
+    obj.index = i;
+    console.log(obj.tel)
+    if(obj.tel.length == 11){
+      data.push(obj);
+    }
+    
   }
 }
 console.log(data);
